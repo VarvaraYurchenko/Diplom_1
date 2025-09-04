@@ -27,3 +27,11 @@ def mock_filling():
     mock.get_name.return_value = TEST_FILLING["name"]
     mock.get_price.return_value = TEST_FILLING["price"]
     return mock
+
+
+@pytest.fixture
+def mock_ingredients(mock_sauce, mock_filling):
+    return {
+        TEST_SAUCE["type"]: mock_sauce,
+        TEST_FILLING["type"]: mock_filling
+    }
